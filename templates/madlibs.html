@@ -3,15 +3,31 @@
 <html>
 <head>
   <title>Here's your Madlib!</title>
+  <link rel="stylesheet" href="static/madlibs.css">
 </head>
 <body>
 
     
 
-There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab. When {{ random_person }} went to pick it up, it burst into flames in a totally {{ adjective }} way.
+<p> There once was a 
+{% if color %}
+{% for single_color in color[:-1] %}
+    {{ single_color }},
+{% endfor %}
+{% endif %}
+{{color[-1]}}
+
+{{ noun }} sitting in the Hackbright Lab with {{star}}. When {{ random_person }} went to pick it up, it burst into flames in a totally {{ adjective }} way and
+{% if music_genre %}
+{% for single_genre in music_genre[:-1]%}
+    {{ single_genre }}
+{% endfor %}
+{% endif %}
+{{music_genre[-1]}}
+ started playing.
 
   
- 
+ </p>
   
 </body>
 </html>

@@ -47,12 +47,15 @@ def show_madlib():
 
     random_person = request.args.get("random_person")
     noun = request.args.get("noun")
-    color = request.args.get("color")
+    color = request.args.getlist("color")
     adjective = request.args.get("adjective")
+    genre = request.args.getlist("genre")
+    celebrity = request.args.get("celebrity")
 
+    
 
-
-    return render_template("madlibs.html", random_person=random_person,color=color,noun=noun,adjective=adjective)
+    return render_template("madlibs.html",
+    random_person=random_person,color=color, noun=noun,adjective=adjective, star=celebrity, music_genre=genre)
 
 @app.route('/greet')
 def greet_person():
